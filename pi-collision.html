@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Physics simulator</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <h1>Pi Collisions</h1>
+        <label for="massInput3">n value (10^n) of Block 2 (kg):</label>
+        <input type="number" id="massInput3" min="0" value="0">
+        <button onclick="createBigBlock()">Create Block 2</button>
+
+        <p>Mass of Block: 10<sup id="massDisplay">?</sup> kg</p>
+        <script>
+            const input = document.getElementById("massInput3");
+            const display = document.getElementById("massDisplay");
+
+            function updateExponent() {
+                display.textContent = input.value;
+            }
+
+            // Set initial display
+            updateExponent();
+
+            // Update whenever the input changes
+            input.addEventListener("input", updateExponent);
+        </script>
+
+        <label for="collisionCountDisplay">Collision Count:</label>
+        <span id="collisionCountDisplay">0</span>
+
+        <p>Digits of pi: 3.1415926535</p>
+
+
+        <button onclick="startSimulation2()">Start Simulation</button>
+
+        <script>
+            window.onload = function () {
+            createBlock();
+            };
+        </script>
+
+        <div id="simulationArea" style="position: relative; height: 400px; border: 1px solid #000; margin-top: 20px; margin-left: 30px; margin-right: 30px"></div>
+        <script src="script.js"></script>
+
+    </body>
+</html>
